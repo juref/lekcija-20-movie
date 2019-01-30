@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+
+{% block title %}Movie db{% endblock title %}
+
+{% block specifika %}
+
+    <div class="container">
+        <div class="container">
+            <div class="row">
+
+                {% if notice %}
+
+                    <div class="notice {{ classConfirm }}">{{ notice }}</div>
+
+                {% endif %}
+
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="row mb-3 center">
+                        <p>
+                            Add movie!
+                        </p>
+                    </div>
+                    <form class="rating-form" method="post">
+
+                        <div class="input-group mb-3">
+                            <div class="input-group mb-3">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Movie Title"
+                                    id="movieTitle"
+                                    name="movieTitle"
+                                    aria-label="movieTitle">
+                            </div>
+                            <div class="input-group mb-3">
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Movie Excerpt"
+                                    id="movieExcerpt"
+                                    name="movieExcerpt"
+                                    aria-label="movieExcerpt">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload thumbnail</span>
+                                </div>
+                                <div class="custom-file">
+                                    <input
+                                        type="file"
+                                        class="custom-file-input"
+                                        id="movieThumb"
+                                        name="movieThumb"
+                                        aria-describedby="inputGroupFileAddon01">
+                                    <label class="custom-file-label" for="movieThumb">Choose file</label>
+                                </div>
+                            </div>
+
+                            <!-- RATING - Form -->
+                            <fieldset class="form-group">
+
+                                <legend class="form-legend">Rating:</legend>
+
+                                <div class="form-item">
+
+                                    <input
+                                        class="select-rating"
+                                        id="rating-5"
+                                        name="rating"
+                                        type="radio"
+                                        value="5"/>
+                                    <label for="rating-5" data-value="5">
+                                        <span class="rating-star">
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star"></i>
+                                        </span>
+                                        <!-- <span class="ir">5</span> -->
+                                    </label>
+                                    <input
+                                        class="select-rating"
+                                        id="rating-4"
+                                        name="rating"
+                                        type="radio"
+                                        value="4"/>
+                                    <label for="rating-4" data-value="4">
+                                        <span class="rating-star">
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star"></i>
+                                        </span>
+                                        <!-- <span class="ir">4</span> -->
+                                    </label>
+                                    <input
+                                        class="select-rating"
+                                        id="rating-3"
+                                        name="rating"
+                                        type="radio"
+                                        value="3"/>
+                                    <label for="rating-3" data-value="3">
+                                        <span class="rating-star">
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star"></i>
+                                        </span>
+                                        <!-- <span class="ir">3</span> -->
+                                    </label>
+                                    <input
+                                        class="select-rating"
+                                        id="rating-2"
+                                        name="rating"
+                                        type="radio"
+                                        value="2"/>
+                                    <label for="rating-2" data-value="2">
+                                        <span class="rating-star">
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star"></i>
+                                        </span>
+                                        <!-- <span class="ir">2</span> -->
+                                    </label>
+                                    <input
+                                        class="select-rating"
+                                        id="rating-1"
+                                        name="rating"
+                                        type="radio"
+                                        value="1"/>
+                                    <label for="rating-1" data-value="1">
+                                        <span class="rating-star">
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star"></i>
+                                        </span>
+                                        <!-- <span class="ir">1</span> -->
+                                    </label>
+
+                                    <div class="form-action">
+                                        <input class="btn btn-dark" id="rating-reset" type="reset"/>
+                                    </div>
+
+                                    <input type="hidden" id="movieRating" name="movieRating" value="">
+                                </div>
+
+                            </fieldset>
+
+                        </div>
+                        <button class="btn btn-dark" type="submit">Submit</button>
+                        <a class="btn btn-dark" href="/">Back</a>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock specifika %}

@@ -1,0 +1,166 @@
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
+/*  Rating stars  */
+#rating-1,
+#rating-2,
+#rating-3,
+#rating-4,
+#rating-5 {
+    position:relative;
+}
+#rating-1:before {
+    content: "\f005";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    font-size: 20px;
+    color: #F8C537;
+    left:-5px;
+    position:absolute;
+    top: 7px;
+}
+#rating-2:before {
+    content: "\f005 \f005";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    font-size: 20px;
+    color: #F8C537;
+    left:-5px;
+    position:absolute;
+    top: 7px;
+}
+#rating-3:before {
+    content: "\f005 \f005 \f005";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    font-size: 20px;
+    color: #F8C537;
+    left:-5px;
+    position:absolute;
+    top: 7px;
+}
+#rating-4:before {
+    content: "\f005 \f005 \f005 \f005";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    font-size: 20px;
+    color: #F8C537;
+    left:-5px;
+    position:absolute;
+    top: 7px;
+}    
+#rating-5:before {
+    content: "\f005 \f005 \f005 \f005 \f005";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: FontAwesome;
+    font-size: 20px;
+    color: #F8C537;
+    left:-5px;
+    position:absolute;
+    top: 7px;
+}
+.rating-form .form-group {
+    color: #F8C537;
+    margin-left: auto;
+    margin-right: auto;
+}
+.rating-form .form-action {
+    left: 15px;
+    bottom: -60px;
+}
+.rating-form input[type="radio"]:checked + label:before {
+    right: 40px;
+}
+#rating-reset {
+    transform: scale(1.5);
+}
+/*  END Rating stars  */
+.add-thumb {
+    color: #2b2f33;
+}
+.thumb-cell {
+    padding: 0 !important;
+}
+.thumb {
+    max-height: 50px;
+}
+.icon {
+    height: 25px;
+    width: 25px;
+}
+.False {
+    background-color: #fff9f9;
+}
+.True {
+    background-color: #f1fbf1;
+}
+.note {
+    color: #666;
+    font-size: 10px;
+}
+.col-12 {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.nav {
+    /* background-color: #a1bbc3; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: solid 2px #18314a;
+}
+
+.container {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.row {
+    margin: 0;
+}
+
+.box {
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 20px;
+    border: solid 1px #cccccc;
+}
+
+.warning {
+    color: #ff0000;
+    background-color: #ffe7e733;
+    border-color: #ff0000;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(255, 70, 70, 0.25);
+}
+
+.red {
+    color: #ff0000;
+    font-weight: 700;
+}
+
+#title {
+    margin-top: 30px;
+    margin-bottom: 60px;
+    color: #18314a;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.center {
+    align-items: center;
+    justify-content: center;
+}
+
+#guest-list {
+    padding-bottom: 30px;
+}
+
+.notice {
+    color: red;
+    font-weight: 700;
+    font-size: 2em;
+    margin: auto;
+}
+
+.confirm {
+    color: green;
+}

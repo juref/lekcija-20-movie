@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block title %}ToDo{% endblock title %}
+
+{% block specifika %}
+
+    <div class="container">
+        <div class="container">
+            <div class="row">
+            
+                {% if notice %}
+            
+                <div class="notice {{ classConfirm }}">{{ notice }}</div>
+            
+                {% endif %}
+            
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <table class="table" id="table">
+                            <thead>
+                                <tr><!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by rating:-->
+                                    <th>Thumb</th>
+                                    <th scope="col" onclick="sortTable(1)">Movie&nbsp;&nbsp;<i class="fa fa-sort" aria-hidden="true"></i></th>
+                                    <th scope="col">Excerpt</th>
+                                    <th scope="col" onclick="sortTable(3)">Rating&nbsp;&nbsp;<i class="fa fa-sort" aria-hidden="true"></i></th>
+                                    <th scope="col">Edit</th>
+                                    <th scope="col">Delete</th>
+                                </tr>
+                            </thead>
+                            {% for m in movieList %}
+                            <tbody>
+                                <tr valign="middle">
+                                    <td class="thumb-cell"><a href="/assets/img/{{ m.movieThumb }}.jpg" target="_blank"><img class="thumb" src="/assets/img/{{ m.movieThumb }}.jpg"></a></td>
+                                    <td>{{ m.movieTitle }}</td>
+                                    <td>{{ m.movieExcerpt }}</td>
+                                    <td id="rating-{{ m.movieRating }}"><input type="hidden" value="{{m.movieRating }}" /></td>
+                                    <td><a href="/edit/{{ m.key.id() }}">Edit</a></td>
+                                    <td><a href="/delete/{{ m.key.id() }}">Delete</a></td>
+                                </tr>
+                            </tbody>
+                            {% endfor %}
+                        </table>
+                        <script>
+                            function sortTable(n) {
+                                var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+                                table = document.getElementById("table");
+                                switching = true;
+                                //Set the sorting direction to ascending:
+                                dir = "asc";
+                                /*Make a loop that will continue until
+                                no switching has been done:*/
+                                while (switching) {
+                                    //start by saying: no switching is done:
+                                    switching = false;
+                                    rows = table.rows;
+                                    /*Loop through all table rows (except the
+                                    first, which contains table headers):*/
+                                    for (i = 1; i < (rows.length - 1); i++) {
+                                        //start by saying there should be no switching:
+                                        shouldSwitch = false;
+                                        /*Get the two elements you want to compare,
+                                        one from current row and one from the next:*/
+                                        x = rows[i].getElementsByTagName("TD")[n];
+                                        y = rows[i + 1].getElementsByTagName("TD")[n];
+                                        /*check if the two rows should switch place,
+                                        based on the direction, asc or desc:*/
+                                        if (dir == "asc") {
+                                            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                                                //if so, mark as a switch and break the loop:
+                                                shouldSwitch = true;
+                                                break;
+                                            }
+                                        } else if (dir == "desc") {
+                                            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                                                //if so, mark as a switch and break the loop:
+                                                shouldSwitch = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    if (shouldSwitch) {
+                                        /*If a switch has been marked, make the switch
+                                        and mark that a switch has been done:*/
+                                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                                        switching = true;
+                                        //Each time a switch is done, increase this count by 1:
+                                        switchcount++;
+                                    } else {
+                                        /*If no switching has been done AND the direction is "asc",
+                                        set the direction to "desc" and run the while loop again.*/
+                                        if (switchcount == 0 && dir == "asc") {
+                                            dir = "desc";
+                                            switching = true;
+                                        }
+                                    }
+                                }
+                            }
+                        </script>
+
+                    </div>
+                    <p>
+                        <a class="btn btn-dark" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                            aria-controls="collapseExample">
+                            Pokaži izbrisana opravila
+                        </a>
+                    </p>
+                    <div class="collapse" id="collapseExample">
+                        <div class="">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">opravilo</th>
+                                        <th scope="col">status</th>
+                                        <th scope="col">uredi</th>
+                                        <th scope="col">izbriši</th>
+                                    </tr>
+                                </thead>
+                                {% for line in deleted %}
+                                <tbody>
+                                    <tr class="{{ line.status }}">
+                                        <td>{{ line.task }}</td>
+                                        <td><img class="icon" src="/assets/img/{{ line.status }}.png" /></td>
+                                        <td><a href="/edit/{{ line.key.id() }}">Uredi</a></td>
+                                        <td><a href="/delete/{{ line.key.id() }}">Izbriši</a></td>
+                                    </tr>
+                                </tbody>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock specifika %}

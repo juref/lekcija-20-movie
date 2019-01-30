@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="/assets/js/jquery-3.2.1.slim.min.js"></script>
+<script src="/assets/js/bootstrap.js"></script>
+<link href="/assets/css/rating.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+
+<head>
+    <meta charset="utf-8">
+    <title>
+        {% block title %}{% endblock title %}
+    </title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <ul class="nav justify-content-left">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/add">Add movie</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="row center" id="title">
+                Your Movie data base
+            </div>
+        </div>
+
+        {% block specifika %}{% endblock specifika %}
+
+    </div>
+    <script type="text/javascript">
+        function goBack() {
+            window.history.back();
+        }
+
+        $(".select-rating").click(function() {
+            $("#movieRating").val($(this).val());
+        });
+        $("#rating-reset").click(function () {
+                $("#movieRating").val("");
+            });
+    </script>
+</body>
