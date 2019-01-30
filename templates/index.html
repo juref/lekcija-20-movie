@@ -1,50 +1,66 @@
 {% extends "base.html" %}
 
-{% block title %}ToDo{% endblock title %}
+{% block title %}Movie database{% endblock title %}
 
 {% block specifika %}
 
     <div class="container">
         <div class="container">
             <div class="row">
-            
+
                 {% if notice %}
-            
-                <div class="notice {{ classConfirm }}">{{ notice }}</div>
-            
+
+                    <div class="notice {{ classConfirm }}">{{ notice }}</div>
+
                 {% endif %}
-            
+
             </div>
             <div class="row">
                 <div class="col-12">
                     <div class="row">
                         <table class="table" id="table">
                             <thead>
-                                <tr><!--When a header is clicked, run the sortTable function, with a parameter, 0 for sorting by names, 1 for sorting by rating:-->
+                                <tr>
+                                    <!--When a header is clicked, run the sortTable function, with a parameter, 0
+                                    for sorting by names, 1 for sorting by rating:-->
                                     <th>Thumb</th>
-                                    <th scope="col" onclick="sortTable(1)">Movie&nbsp;&nbsp;<i class="fa fa-sort" aria-hidden="true"></i></th>
+                                    <th scope="col" onclick="sortTable(1)">Movie&nbsp;&nbsp;<i class="fa fa-sort" aria-hidden="true"></i>
+                                    </th>
                                     <th scope="col">Excerpt</th>
-                                    <th scope="col" onclick="sortTable(3)">Rating&nbsp;&nbsp;<i class="fa fa-sort" aria-hidden="true"></i></th>
-                                    <th scope="col">Edit</th>
+                                    <th scope="col" onclick="sortTable(3)">Rating&nbsp;&nbsp;<i class="fa fa-sort" aria-hidden="true"></i>
+                                    </th>
                                     <th scope="col">Delete</th>
                                 </tr>
                             </thead>
-                            {% for m in movieList %}
                             <tbody>
-                                <tr valign="middle">
-                                    <td class="thumb-cell"><a href="/assets/img/{{ m.movieThumb }}.jpg" target="_blank"><img class="thumb" src="/assets/img/{{ m.movieThumb }}.jpg"></a></td>
-                                    <td>{{ m.movieTitle }}</td>
-                                    <td>{{ m.movieExcerpt }}</td>
-                                    <td id="rating-{{ m.movieRating }}"><input type="hidden" value="{{m.movieRating }}" /></td>
-                                    <td><a href="/edit/{{ m.key.id() }}">Edit</a></td>
-                                    <td><a href="/delete/{{ m.key.id() }}">Delete</a></td>
-                                </tr>
+                                {% for m in movieList %}
+
+                                    <tr valign="middle">
+                                        <td class="thumb-cell" style="background-image: url({{ m.movieThumb }})">
+                                            <a href="{{ m.movieThumb }}" target="_blank"></a>
+                                        </td>
+                                        <td>{{ m.movieTitle }}</td>
+                                        <td>{{ m.movieExcerpt }}</td>
+                                        <td id="rating-{{ m.movieRating }}"><input type="hidden" value="{{m.movieRating }}"/></td>
+                                        <td>
+                                            <a href="/delete/{{ m.key.id() }}">Delete</a>
+                                        </td>
+                                    </tr>
+
+                                {% endfor %}
                             </tbody>
-                            {% endfor %}
                         </table>
                         <script>
                             function sortTable(n) {
-                                var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+                                var table,
+                                    rows,
+                                    switching,
+                                    i,
+                                    x,
+                                    y,
+                                    shouldSwitch,
+                                    dir,
+                                    switchcount = 0;
                                 table = document.getElementById("table");
                                 switching = true;
                                 //Set the sorting direction to ascending:
@@ -83,7 +99,9 @@
                                     if (shouldSwitch) {
                                         /*If a switch has been marked, make the switch
                                         and mark that a switch has been done:*/
-                                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                                        rows[i]
+                                            .parentNode
+                                            .insertBefore(rows[i + 1], rows[i]);
                                         switching = true;
                                         //Each time a switch is done, increase this count by 1:
                                         switchcount++;
@@ -99,36 +117,6 @@
                             }
                         </script>
 
-                    </div>
-                    <p>
-                        <a class="btn btn-dark" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
-                            aria-controls="collapseExample">
-                            Pokaži izbrisana opravila
-                        </a>
-                    </p>
-                    <div class="collapse" id="collapseExample">
-                        <div class="">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">opravilo</th>
-                                        <th scope="col">status</th>
-                                        <th scope="col">uredi</th>
-                                        <th scope="col">izbriši</th>
-                                    </tr>
-                                </thead>
-                                {% for line in deleted %}
-                                <tbody>
-                                    <tr class="{{ line.status }}">
-                                        <td>{{ line.task }}</td>
-                                        <td><img class="icon" src="/assets/img/{{ line.status }}.png" /></td>
-                                        <td><a href="/edit/{{ line.key.id() }}">Uredi</a></td>
-                                        <td><a href="/delete/{{ line.key.id() }}">Izbriši</a></td>
-                                    </tr>
-                                </tbody>
-                                {% endfor %}
-                            </table>
-                        </div>
                     </div>
                 </div>
             </div>

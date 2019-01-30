@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Movie db{% endblock title %}
+{% block title %}Add movie to database{% endblock title %}
 
 {% block specifika %}
 
@@ -43,20 +43,14 @@
                                     name="movieExcerpt"
                                     aria-label="movieExcerpt">
                             </div>
-
                             <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroupFileAddon01">Upload thumbnail</span>
-                                </div>
-                                <div class="custom-file">
-                                    <input
-                                        type="file"
-                                        class="custom-file-input"
-                                        id="movieThumb"
-                                        name="movieThumb"
-                                        aria-describedby="inputGroupFileAddon01">
-                                    <label class="custom-file-label" for="movieThumb">Choose file</label>
-                                </div>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Thumbnail URL (paste url)"
+                                    id="movieThumb"
+                                    name="movieThumb"
+                                    aria-label="movieExcerpt">
                             </div>
 
                             <!-- RATING - Form -->

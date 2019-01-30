@@ -9,51 +9,56 @@ html {
 #rating-3,
 #rating-4,
 #rating-5 {
-    position:relative;
+    position: relative;
 }
 #rating-1:before {
-    content: "\f005";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    content: "\f005";
+    /* this is your text. You can also use UTF-8 character codes as I do here */
     font-family: FontAwesome;
     font-size: 20px;
     color: #F8C537;
-    left:-5px;
-    position:absolute;
+    left: -5px;
+    position: absolute;
     top: 7px;
 }
 #rating-2:before {
-    content: "\f005 \f005";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    content: "\f005 \f005";
+    /* this is your text. You can also use UTF-8 character codes as I do here */
     font-family: FontAwesome;
     font-size: 20px;
     color: #F8C537;
-    left:-5px;
-    position:absolute;
+    left: -5px;
+    position: absolute;
     top: 7px;
 }
 #rating-3:before {
-    content: "\f005 \f005 \f005";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    content: "\f005 \f005 \f005";
+    /* this is your text. You can also use UTF-8 character codes as I do here */
     font-family: FontAwesome;
     font-size: 20px;
     color: #F8C537;
-    left:-5px;
-    position:absolute;
+    left: -5px;
+    position: absolute;
     top: 7px;
 }
 #rating-4:before {
-    content: "\f005 \f005 \f005 \f005";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    content: "\f005 \f005 \f005 \f005";
+    /* this is your text. You can also use UTF-8 character codes as I do here */
     font-family: FontAwesome;
     font-size: 20px;
     color: #F8C537;
-    left:-5px;
-    position:absolute;
+    left: -5px;
+    position: absolute;
     top: 7px;
-}    
+}
 #rating-5:before {
-    content: "\f005 \f005 \f005 \f005 \f005";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    content: "\f005 \f005 \f005 \f005 \f005";
+    /* this is your text. You can also use UTF-8 character codes as I do here */
     font-family: FontAwesome;
     font-size: 20px;
     color: #F8C537;
-    left:-5px;
-    position:absolute;
+    left: -5px;
+    position: absolute;
     top: 7px;
 }
 .rating-form .form-group {
@@ -72,10 +77,18 @@ html {
     transform: scale(1.5);
 }
 /*  END Rating stars  */
+.table tr:last-child {
+    border-bottom: solid 2px #dee2e6;
+}
+
 .add-thumb {
     color: #2b2f33;
 }
 .thumb-cell {
+    width: 90px;
+    height: 50px;
+    background-position: center;
+    background-size: cover;
     padding: 0 !important;
 }
 .thumb {
@@ -96,8 +109,8 @@ html {
     font-size: 10px;
 }
 .col-12 {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .nav {
@@ -108,8 +121,8 @@ html {
 }
 
 .container {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .row {
